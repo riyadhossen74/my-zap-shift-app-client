@@ -5,6 +5,7 @@ import { CiMenuBurger } from "react-icons/ci";
 import { Link } from "react-router";
 import Navlink from "./Navlink";
 import Logo from "../../../Logo/Logo";
+import { BsArrowUpRightCircleFill } from "react-icons/bs";
 
 const navData = [
   {
@@ -46,8 +47,8 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <nav>
-      <div className="flex justify-between px-5 md:px-30 items-center shadow py-2">
-        <div className="flex items-center text-black  text-3xl font-extrabold    ">
+      <div className="flex justify-between px-5  items-center shadow py-2 text-black rounded-2xl">
+        <div className="flex items-center  ">
           <span onClick={() => setOpen(!open)}>
             {open ? (
               <TbXboxX className="text-black md:hidden" />
@@ -63,27 +64,32 @@ const Navbar = () => {
             {link}
           </ul>
           <Link to="/">
-            <Logo></Logo>
+           <div className="hidden md:block">
+             <Logo></Logo>
+           </div>
           </Link>
-          <h1>ZapShift</h1>
+         
         </div>
         <div>
           <ul className="md:flex gap-6 font-semibold hidden">{link}</ul>
         </div>
-        <div className="flex items-center gap-7">
+        <div className="flex items-center gap-2.5 md:gap-7 ">
           <button
-            className="p-3 px-5 border border-gray-700 rounded-md 
+            className="p-2 md:p-3 md:px-5 border border-gray-700 rounded-md 
     transition hover:bg-gray-800 hover:text-white"
           >
             Sign In
           </button>
 
           <button
-            className="bg-[#CAEB66] px-5 p-3 rounded-md text-[#1F1F1F] 
-    transition hover:bg-[#b8db5c] hover:shadow-lg"
+            className="p-2 bg-primary md:px-5 md:p-3 rounded-md text-[#1F1F1F] 
+    transition  hover:shadow-lg"
           >
             Sign Up
           </button>
+            <BsArrowUpRightCircleFill className="relative right-7" size={50} />
+         
+    
         </div>
       </div>
     </nav>

@@ -4,21 +4,21 @@ import Logo from "../../../Logo/Logo";
 
 const Footer = () => {
     return (
-        <footer className=" text-gray-300 py-10 mt-20">
+        <footer className="bg-[#0B0B0B] rounded-4xl text-gray-300 py-10 mt-20">
       <div className="max-w-7xl mx-auto px-5 gap-10 text-center space-y-4">
 
         {/* Left Section */}
         <div>
-            <div className="flex  items-center justify-center">
+            <div className="flex  items-center justify-center text-white">
             <Logo></Logo>
-          <h2 className="text-3xl font-bold text-white">ZapShift</h2>
+         
             </div>
-          <p className="mt-3 text-sm ">
+          <p className="mt-3 text-sm mx-auto max-w-[730px] leading-7">
             Enjoy fast, reliable parcel delivery with real-time tracking and zero hassle. 
-            From personal packages to <br />business shipments — we deliver on time, every time.
+            From personal packages to business shipments — we deliver on time, every time.
           </p>
         </div>
-        <ul className="md:flex items-center justify-center gap-6 font-semibold hidden">
+        <ul className="md:flex items-center justify-center gap-6 font-semibold ">
             <li>Services</li>
             <li>Coverage</li>
             <li>About Us</li>
