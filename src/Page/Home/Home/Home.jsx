@@ -4,6 +4,9 @@ import HowItIsWork from '../HowItIsWork/HowItIsWork';
 import OurService from './Service/OurService';
 import Sponsor from './Sponsor/Sponsor';
 import SupportService from './SupportService/SupportService';
+import Reviews from '../Reviews/Reviews';
+
+const ReviewsPromise = fetch('/reviews.json').then(res => res.json())
 
 const Home = () => {
     return (
@@ -20,7 +23,12 @@ const Home = () => {
           <section>
             <Sponsor></Sponsor>
           </section>
-          <SupportService></SupportService>
+         <section>
+           <SupportService></SupportService>
+         </section>
+         <section>
+          <Reviews ReviewsPromise={ReviewsPromise}></Reviews>
+         </section>
         </div>
     );
 };
