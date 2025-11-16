@@ -87,7 +87,7 @@ const Navbar = () => {
           >
             Sign Up
           </button>
-            <BsArrowUpRightCircleFill className="relative right-7" size={50} />
+            <BsArrowUpRightCircleFill className="relative right-7" size={40} />
          
     
         </div>
