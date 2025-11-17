@@ -4,6 +4,7 @@ import { RxAvatar } from "react-icons/rx";
 import { Link } from "react-router";
 import useAuth from "../../../hook/useAuth";
 import SocalLogin from "../SocalLogin/SocalLogin";
+import axios from "axios";
 
 const Register = () => {
   const {
@@ -11,12 +12,35 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { registerUser } = useAuth();
+  const { registerUser, updateUser } = useAuth();
   const handleRegister = (data) => {
     console.log(data.photo[0]);
+    const profileImg = data.photo[0];
     registerUser(data.email, data.password)
       .then((res) => {
         console.log(res.user);
+        // store the image and get photo url
+        const formData = new FormData();
+        formData.append("image", profileImg);
+        const image_API_URL = `https://api.imgbb.com/1/upload?key=${
+          import.meta.env.VITE_img_host
+        }`;
+
+        axios.post(image_API_URL, formData).then((res) => {
+          console.log("after image upload", res.data);
+          // update user profile
+          const userProfile = {
+            displayName: data.name,
+            photoURL: res.data.data.url,
+          };
+          updateUser(userProfile)
+            .then(() => {
+              console.log("done done done  ...................");
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        });
       })
       .catch((error) => {
         console.log(error);
