@@ -8,7 +8,7 @@ import Home from '../Page/Home/Home/Home';
 const RootLayout = () => {
     return (
         <div className=' flex flex-col min-h-screen bg-[#EAECED]' >
-            <header className='container mx-auto'>
+            <header className='container mx-auto '>
                 <Navbar></Navbar>
             </header>
            

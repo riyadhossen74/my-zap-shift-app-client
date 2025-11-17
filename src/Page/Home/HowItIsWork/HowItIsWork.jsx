@@ -36,7 +36,7 @@ const ItIsWork = [
 const HowItIsWork = () => {
   
   return (
-    <div className="my-20 px-20">
+    <div className="my-20  px-20">
         <h1 className="text-3xl font-extrabold">How it Works</h1>
       <div className=" grid md:grid-cols-4 gap-20 my-10 ">
         {ItIsWork.map((data) => (

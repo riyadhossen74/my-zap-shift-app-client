@@ -5,6 +5,7 @@ import OurService from './Service/OurService';
 import Sponsor from './Sponsor/Sponsor';
 import SupportService from './SupportService/SupportService';
 import Reviews from '../Reviews/Reviews';
+import Merchant from '../../Merchant/Merchant';
 
 const ReviewsPromise = fetch('/reviews.json').then(res => res.json())
 
@@ -14,6 +15,8 @@ const Home = () => {
           <section className='my-5'>
              <Banner></Banner>
           </section>
+          
+
           <section>
             <HowItIsWork></HowItIsWork>
           </section>
@@ -25,6 +28,9 @@ const Home = () => {
           </section>
          <section>
            <SupportService></SupportService>
+         </section>
+         <section>
+          <Merchant></Merchant>
          </section>
          <section>
           <Reviews ReviewsPromise={ReviewsPromise}></Reviews>

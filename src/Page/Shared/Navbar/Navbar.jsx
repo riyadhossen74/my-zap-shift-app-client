@@ -47,7 +47,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <nav>
-      <div className="flex justify-between px-5  items-center shadow py-2 text-black rounded-2xl">
+      <div className="flex justify-between px-5  items-center shadow py-2 text-black rounded-2xl ">
         <div className="flex items-center  ">
           <span onClick={() => setOpen(!open)}>
             {open ? (
@@ -74,19 +74,19 @@ const Navbar = () => {
           <ul className="md:flex gap-6 font-semibold hidden">{link}</ul>
         </div>
         <div className="flex items-center gap-2.5 md:gap-7 ">
-          <button
+          <Link to='/login'
             className="p-2 md:p-3 md:px-5 border border-gray-700 rounded-md 
     transition hover:bg-gray-800 hover:text-white"
           >
             Sign In
-          </button>
+          </Link>
 
-          <button
+          <Link to='/register'
             className="p-2 bg-primary md:px-5 md:p-3 rounded-md text-[#1F1F1F] 
     transition  hover:shadow-lg"
           >
             Sign Up
-          </button>
+          </Link>
             <BsArrowUpRightCircleFill className="relative right-7" size={40} />
          
     
