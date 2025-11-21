@@ -38,7 +38,7 @@ const DashboardLayout = () => {
         {/* our dashboard link  */}
         <li className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="MyParcel">
 
-        <NavLink className="hover:text-green-600" to='/dashboard/my-parcel'>
+        <NavLink className="hover:text-green-600" to='/dashboard/my-parcels'>
          <CiDeliveryTruck className="my-1.5 inline-block size-4" />
         <span className="is-drawer-close:hidden">My-Parcel</span>
         </NavLink>

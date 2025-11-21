@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { BsSkipBackward } from "react-icons/bs";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import useSecureAxios from "../../hook/useSecureAxios";
 import useAuth from "../../hook/useAuth";
@@ -10,6 +10,7 @@ const Parcel = () => {
   const serviceCenter = useLoaderData();
   const axiosSecure = useSecureAxios();
   const { user } = useAuth();
+  const navigate = useNavigate()
 
   const {
     register,
@@ -61,21 +62,28 @@ const Parcel = () => {
       confirmButtonText: "Confirmed",
     }).then((result) => {
       if (result.isConfirmed) {
+       
         // data base post
         axiosSecure
           .post("/parcels", data)
           .then((res) => {
             console.log("after post data in parcels", res.data);
+            if (res.data.insertedId) {
+               navigate('/dashboard/my-parcels')
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your parcel has done payment now",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
           })
           .catch((error) => {
             console.log(error);
           });
 
-        Swal.fire({
-          title: "Done",
-          text: "Cancel",
-          icon: "success",
-        });
+        
       }
     });
     console.log("cost", cost, data);

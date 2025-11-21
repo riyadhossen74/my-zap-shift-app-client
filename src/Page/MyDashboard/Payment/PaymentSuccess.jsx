@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router";
+import useSecureAxios from "../../../hook/useSecureAxios";
 
 const PaymentSuccess = () => {
-  const [searchParams] = useSearchParams()
-  const sessionId = searchParams.get('session_id')
-  console.log(sessionId)
+  const [searchParams] = useSearchParams();
+  const [paymentInfo, setPaymentInfo] = useState({});
+  const sessionId = searchParams.get("session_id");
+  const axiosSecure = useSecureAxios();
+
+  useEffect(() => {
+    if (sessionId) {
+      axiosSecure
+        .patch(`/payment-success?session_id=${sessionId}`)
+        .then((res) => {
+          setPaymentInfo({
+            trackingId: res.data.trackingId,
+
+            transactionId: res.data.transactionId
+          });
+        });
+    }
+  }, [sessionId, axiosSecure]);
+
+  console.log(sessionId);
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
       <div className="bg-white w-full max-w-md rounded-2xl shadow-xl p-8 flex flex-col items-center text-center">
@@ -33,6 +51,8 @@ const PaymentSuccess = () => {
           Your payment has been completed. Thank you for choosing Zap-Shift
           Delivery.
         </p>
+        <p>your tracking id: <span className="hover:text-green-500 hover:underline">{paymentInfo.trackingId}</span></p>
+        <p>your transaction id: <span className="hover:text-green-500 hover:underline">{paymentInfo.transactionId}</span></p>
 
         <div className="mt-6 w-full">
           <Link
