@@ -43,6 +43,15 @@ const DashboardLayout = () => {
         <span className="is-drawer-close:hidden">My-Parcel</span>
         </NavLink>
            
+         {/* my payment history */}
+        </li>
+        <li className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="payment history">
+
+        <NavLink className="hover:text-green-600" to='/dashboard/payment-history'>
+         <CiDeliveryTruck className="my-1.5 inline-block size-4" />
+        <span className="is-drawer-close:hidden">Payment history</span>
+        </NavLink>
+           
          
         </li>
 

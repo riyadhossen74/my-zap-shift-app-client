@@ -14,7 +14,7 @@ import MyParcel from "../Page/MyDashboard/MyParcel";
 import Payment from "../Page/MyDashboard/Payment/Payment";
 import PaymentSuccess from "../Page/MyDashboard/Payment/PaymentSuccess";
 import PaymentCancelled from "../Page/MyDashboard/Payment/PaymentCancelled";
-
+import PaymentHistory from "../Page/MyDashboard/Payment/PaymentHistory/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -36,12 +36,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/pricing",
-        element: <PrivetRoute><Parcel></Parcel></PrivetRoute>,
+        element: (
+          <PrivetRoute>
+            <Parcel></Parcel>
+          </PrivetRoute>
+        ),
         loader: () => fetch("/warehouses.json").then((res) => res.json()),
       },
       {
         path: "/rider",
-       element:<PrivetRoute><Rider></Rider></PrivetRoute>
+        element: (
+          <PrivetRoute>
+            <Rider></Rider>
+          </PrivetRoute>
+        ),
       },
     ],
   },
@@ -60,26 +68,34 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: 'dashboard',
-   element: <PrivetRoute><DashboardLayout></DashboardLayout></PrivetRoute>,
-    children:[
+    path: "dashboard",
+    element: (
+      <PrivetRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivetRoute>
+    ),
+    children: [
       {
-      path: 'my-parcels',
-      Component: MyParcel
+        path: "my-parcels",
+        Component: MyParcel,
       },
       {
-        path: 'payment/:parcelId',
-        Component: Payment
+        path: "payment/:parcelId",
+        Component: Payment,
       },
       {
-        path:'payment-success',
-        Component: PaymentSuccess
+        path: "payment-success",
+        Component: PaymentSuccess,
       },
       {
-        path:'payment-cancelled',
-        Component: PaymentCancelled
-      }
-    ]
-  }
+        path: "payment-history",
+        Component: PaymentHistory,
+      },
+      {
+        path: "payment-cancelled",
+        Component: PaymentCancelled,
+      },
+    ],
+  },
 ]);
 export default router;
