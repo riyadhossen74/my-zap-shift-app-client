@@ -19,6 +19,8 @@ import ApproveRider from "../Page/MyDashboard/ApproveRider/ApproveRider";
 import UsersManagement from "../Page/MyDashboard/UsersManagement/UsersManagement";
 import AdminRout from "./AdminRout";
 import AssignRider from "../Page/MyDashboard/AssignRider/AssignRider";
+import AssignedDeliveries from "../Page/MyDashboard/AssignedDeliveries/AssignedDeliveries";
+import RiderRoute from "./RiderRoute";
 
 const router = createBrowserRouter([
   {
@@ -100,6 +102,13 @@ const router = createBrowserRouter([
         path: "payment-cancelled",
         Component: PaymentCancelled,
       },
+      // rider only router
+      {
+        path: 'assigned-deliveries',
+        element: <RiderRoute><AssignedDeliveries></AssignedDeliveries></RiderRoute>
+      },
+
+      // admin only router
       {
         path: "approveRider",
        element: <AdminRout><ApproveRider></ApproveRider></AdminRout>,

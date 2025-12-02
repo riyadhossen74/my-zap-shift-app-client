@@ -54,7 +54,7 @@ const ApproveRider = () => {
         confirmButtonText: "Yes, delete it!",
       }).then((result) => {
         if (result.isConfirmed) {
-          axiosSecure.delete(`/rider/${id}`).then((res) => {
+          axiosSecure.delete(`/riders/${id}`).then((res) => {
             console.log(res.data);
             if (res.data.deletedCount) {
               // refresh the data ui
