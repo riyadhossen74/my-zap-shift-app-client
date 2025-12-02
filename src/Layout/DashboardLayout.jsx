@@ -1,8 +1,15 @@
 import React from "react";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { PiPersonSimpleBikeBold } from "react-icons/pi";
+import { BiTask } from "react-icons/bi";
 
-import { FaAddressCard, FaMotorcycle, FaTasks, FaUser, FaUsers } from "react-icons/fa";
+import {
+  FaAddressCard,
+  FaMotorcycle,
+  FaTasks,
+  FaUser,
+  FaUsers,
+} from "react-icons/fa";
 import { Link, NavLink, Outlet } from "react-router";
 import useRole from "../hook/useRole";
 
@@ -105,23 +112,38 @@ const DashboardLayout = () => {
                   </span>
                 </NavLink>
               </li>
-              {role === 'rider' && <>
-               <li
-                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="Assigned Deliveries"
-              >
-                <NavLink
-                  className="hover:text-green-600"
-                  to="/dashboard/assigned-deliveries"
-                >
-                  <FaTasks className="my-1.5 inline-block size-4" />
-                  <span className="is-drawer-close:hidden">
-                 Assigned Deliveries
-                  </span>
-                </NavLink>
-              </li>
-              </>}
-             
+              {role === "rider" && (
+                <>
+                  <li
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Assigned Deliveries"
+                  >
+                    <NavLink
+                      className="hover:text-green-600"
+                      to="/dashboard/assigned-deliveries"
+                    >
+                      <FaTasks className="my-1.5 inline-block size-4" />
+                      <span className="is-drawer-close:hidden">
+                        Assigned Deliveries
+                      </span>
+                    </NavLink>
+                  </li>
+                  <li
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Complied Deliveries"
+                  >
+                    <NavLink
+                      className="hover:text-green-600"
+                      to="/dashboard/complied-deliveries"
+                    >
+                      <BiTask className="my-1.5 inline-block size-4" />
+                      <span className="is-drawer-close:hidden">
+                        Complied Deliveries
+                      </span>
+                    </NavLink>
+                  </li>
+                </>
+              )}
 
               {role === "admin" && (
                 <>
@@ -149,7 +171,7 @@ const DashboardLayout = () => {
                       className="hover:text-green-600"
                       to="/dashboard/assignRider"
                     >
-                  <PiPersonSimpleBikeBold className="my-1.5 inline-block size-4" />
+                      <PiPersonSimpleBikeBold className="my-1.5 inline-block size-4" />
                       <span className="is-drawer-close:hidden">
                         Assign Rider
                       </span>

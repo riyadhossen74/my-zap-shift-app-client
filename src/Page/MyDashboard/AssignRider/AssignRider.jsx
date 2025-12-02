@@ -9,10 +9,10 @@ const AssignRider = () => {
   const RiderRef = useRef();
   const axiosSecure = useSecureAxios();
   const { data: parcels = [], refetch } = useQuery({
-    queryKey: ["parcel", "pending-pickup"],
+    queryKey: ["parcel", "pending_pickup"],
     queryFn: async () => {
       const res = await axiosSecure.get(
-        "/parcels?deliveryStatus=pending-pickup"
+        "/parcels?deliveryStatus=pending_pickup"
       );
       return res.data;
     },
@@ -41,6 +41,7 @@ const AssignRider = () => {
       riderEmail: rider.email,
       riderName: rider.name,
       parcelId: selectedParcel._id,
+      trackingId: selectedParcel.trackingId
     };
     axiosSecure
       .patch(`/parcels/${selectedParcel._id}`, riderAssignInfo)
@@ -122,7 +123,7 @@ const AssignRider = () => {
                     <td>{assign.email}</td>
                     <td>
                       <button
-                        onClick={() => handleAssignRider(rider)}
+                        onClick={() => handleAssignRider(assign)}
                         className=" btn btn-primary text-black"
                       >
                         Assign

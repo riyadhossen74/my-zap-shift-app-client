@@ -21,6 +21,8 @@ import AdminRout from "./AdminRout";
 import AssignRider from "../Page/MyDashboard/AssignRider/AssignRider";
 import AssignedDeliveries from "../Page/MyDashboard/AssignedDeliveries/AssignedDeliveries";
 import RiderRoute from "./RiderRoute";
+import CompliedDeliveries from "../Page/MyDashboard/CompliedDeliveries/CompliedDeliveries";
+import TrackingParcel from "../Page/Home/Home/TrackingParcel/TrackingParcel";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +60,10 @@ const router = createBrowserRouter([
         ),
         loader: () => fetch("/warehouses.json").then((res) => res.json()),
       },
+      {
+        path: '/parcel-track/:trackingId',
+        element: <TrackingParcel></TrackingParcel>
+      }
     ],
   },
   {
@@ -106,6 +112,10 @@ const router = createBrowserRouter([
       {
         path: 'assigned-deliveries',
         element: <RiderRoute><AssignedDeliveries></AssignedDeliveries></RiderRoute>
+      },
+      {
+        path: 'complied-deliveries',
+        element: <RiderRoute><CompliedDeliveries></CompliedDeliveries></RiderRoute>
       },
 
       // admin only router

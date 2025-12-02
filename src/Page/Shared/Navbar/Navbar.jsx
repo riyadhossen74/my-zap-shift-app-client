@@ -34,6 +34,11 @@ const navData = [
     name: "Be a Rider",
     path: "/rider",
   },
+  // {
+  //   id:6,
+  //   name: 'Parcel Track',
+  //   path: '/parcel-track/:parcelId'
+  // }
 ];
 
 const Navbar = () => {
