@@ -2,12 +2,13 @@ import React from "react";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { PiPersonSimpleBikeBold } from "react-icons/pi";
 import { BiTask } from "react-icons/bi";
+import LogoImg from '../assets/logo.png'
 
 import {
   FaAddressCard,
   FaMotorcycle,
   FaTasks,
-  FaUser,
+ 
   FaUsers,
 } from "react-icons/fa";
 import { Link, NavLink, Outlet } from "react-router";
@@ -59,10 +60,12 @@ const DashboardLayout = () => {
             {/* Sidebar content here */}
             <ul className="menu w-full grow">
               {/* List item */}
-
+              <li>
+                <Link to='/'><img src={LogoImg} alt="" /></Link>
+              </li>
               <li>
                 <Link
-                  to="/"
+                  to="/dashboard"
                   className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                   data-tip="Homepage"
                 >
@@ -80,7 +83,7 @@ const DashboardLayout = () => {
                     <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
                     <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                   </svg>
-                  <span className="is-drawer-close:hidden">Homepage</span>
+                  <span className="is-drawer-close:hidden">Home page</span>
                 </Link>
               </li>
               {/* our dashboard link  */}

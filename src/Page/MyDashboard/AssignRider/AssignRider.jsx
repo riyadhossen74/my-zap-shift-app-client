@@ -12,12 +12,12 @@ const AssignRider = () => {
     queryKey: ["parcel", "pending_pickup"],
     queryFn: async () => {
       const res = await axiosSecure.get(
-        "/parcels?deliveryStatus=pending_pickup"
+        "/parcels?deliveryStatus=pending-pickup"
       );
       return res.data;
     },
   });
-
+console.log(parcels)
   const { data: rider = [] } = useQuery({
     queryKey: ["parcel", selectedParcel?.senderDistrict, "available"],
     enabled: !!selectedParcel,

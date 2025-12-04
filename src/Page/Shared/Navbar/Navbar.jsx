@@ -14,25 +14,26 @@ const navData = [
     name: "Services",
     path: "/",
   },
+
   {
     id: 2,
-    name: "Coverage",
-    path: "/coverage",
-  },
-  {
-    id: 3,
-    name: "About Us",
-    path: "/about-us",
-  },
-  {
-    id: 4,
     name: "Pricing",
     path: "/pricing",
   },
   {
-    id: 5,
+    id: 3,
     name: "Be a Rider",
     path: "/rider",
+  },
+  {
+    id: 4,
+    name: "Coverage Areas",
+    path: "/coverage",
+  },
+  {
+    id: 5,
+    name: "About Us",
+    path: "/about-us",
   },
   // {
   //   id:6,
@@ -85,6 +86,13 @@ const Navbar = () => {
                 >
                   MY-Parcel
                 </NavLink>
+                <NavLink  className={({ isActive }) =>
+                    isActive
+                      ? "text-emerald-600 underline"
+                      : "hover:text-emerald-500 hover:underline"
+                  } to='/dashboard'>
+                  Dashboard
+                </NavLink>
               </>
             )}
           </ul>
@@ -110,6 +118,13 @@ const Navbar = () => {
                   to="/dashboard/my-parcels"
                 >
                   MY-Parcel
+                </NavLink>
+                <NavLink  className={({ isActive }) =>
+                    isActive
+                      ? "text-emerald-600 underline"
+                      : "hover:text-emerald-500 hover:underline"
+                  } to='/dashboard'>
+                  Dashboard
                 </NavLink>
               </>
             )}
